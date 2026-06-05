@@ -14,4 +14,8 @@ public partial class Produto
     public decimal Preco { get; set; }
 
     public int? Quantidade { get; set; }
+
+    public int? UsuarioId { get; set; }
+
+    public virtual Usuario? Usuario { get; set; }
 }

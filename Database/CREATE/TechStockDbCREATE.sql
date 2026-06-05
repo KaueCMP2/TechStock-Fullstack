@@ -4,12 +4,36 @@ GO
 USE TechStockDb
 GO
 
+CREATE TABLE TipoUsuario
+(
+	TipoId INT IDENTITY(100, 10) PRIMARY KEY, 
+	NomeTipo VARCHAR(40) UNIQUE
+)
+GO
+
+CREATE TABLE Usuario
+(
+	UsuarioId INT IDENTITY(1000, 10) PRIMARY KEY,
+	NomeUsuario NVARCHAR(100) NOT NULL,
+	Email VARCHAR(255) UNIQUE NOT NULL,
+	Senha VARBINARY(32) NOT NULL,
+	DataNascimento DATE,
+	TipoId INT,
+
+	CONSTRAINT FK_Usuario_TipoUsuario_TipoId FOREIGN KEY (TipoId) REFERENCES TipoUsuario(TipoId)
+)
+GO
+
 CREATE TABLE Produto 
 (
-ProdutoId INT IDENTITY(1,1) PRIMARY KEY,
-Nome NVARCHAR(100) NOT NULL,
-Descricao NVARCHAR(MAX),
-Preco DECIMAL(10,2) NOT NULL,
-Quantidade INT
-);
+	ProdutoId INT IDENTITY(1,1) PRIMARY KEY,
+	Nome NVARCHAR(100) NOT NULL,
+	Descricao NVARCHAR(MAX),
+	Preco DECIMAL(10,2) NOT NULL,
+	Quantidade INT,
+	Imagem VARBINARY (MAX) NOT NULL,
+	UsuarioId INT
+
+	CONSTRAINT FK_Produto_Usuario_UsuarioId FOREIGN KEY (UsuarioId) REFERENCES Usuario(UsuarioId)
+)
 GO

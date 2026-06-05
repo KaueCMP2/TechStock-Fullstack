@@ -31,7 +31,7 @@ namespace TechStockAPI.Applications.Services
                 throw new DomainException("Usuario não encontrado!!!");
 
             if (!VerificarSenha(senha, usuario.Senha))
-                throw new DomainException("Email ou senha incorreto(s)!!!" + usuario.Senha);
+                throw new DomainException("Email ou senha incorreto(s)!!!");
 
             string token = _jwt.GerarToken(usuario);
 

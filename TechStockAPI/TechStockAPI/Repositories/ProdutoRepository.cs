@@ -22,6 +22,7 @@ namespace TechStockAPI.Repositories
             return _context.Produto.Find(id);
         }
 
+
         public bool ProdutoExiste(string? nome = null, int? id = null)
         {
             return _context.Produto.FirstOrDefault(p => p.Nome == nome || p.ProdutoId == id) != null;

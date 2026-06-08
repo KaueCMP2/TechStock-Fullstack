@@ -1,0 +1,19 @@
+#main {
+    margin: 4% auto;    
+}
+
+#container_pesquisa {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.4%;
+}
+
+#container_lista {
+    margin: 4% auto;
+    
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 5vh 3.5%;
+}

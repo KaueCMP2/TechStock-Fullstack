@@ -20,8 +20,8 @@ namespace TechStockAPI.Applications.Services
 
         private static bool VerificarSenha(string senhaDigitada, byte[] senhaHash)
         {
-            var hashDigitado = SenhaParaHash.ConverterSenhaHash(senhaDigitada);
-            return hashDigitado.Equals(senhaHash);
+            byte[] hashDigitado = SenhaParaHash.ConverterSenhaHash(senhaDigitada);
+            return hashDigitado.SequenceEqual(senhaHash);
         }
 
         public TokenDto Login(string email, string senha)

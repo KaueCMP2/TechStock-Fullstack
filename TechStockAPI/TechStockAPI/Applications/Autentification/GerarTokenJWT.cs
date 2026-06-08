@@ -21,7 +21,7 @@ namespace TechStockAPI.Applications.Autentification
                 throw new DomainException("JWT_KEY não configurada");
 
             var issuer = _config["Jwt:Issuer"]!;
-            var audience = _config["Jwt:Audiece"]!;
+            var audience = _config["Jwt:Audience"]!;
             var ExpirationTime = int.Parse(_config["JWt:ExpirationTime"]!);
 
             var keyBytes = Encoding.UTF8.GetBytes(chave);

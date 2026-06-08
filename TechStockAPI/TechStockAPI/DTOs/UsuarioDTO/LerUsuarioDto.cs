@@ -10,6 +10,6 @@
 
         public DateOnly? DataNascimento { get; set; }
 
-        public int? TipoId { get; set; }
+        public int TipoId { get; set; }
     }
 }

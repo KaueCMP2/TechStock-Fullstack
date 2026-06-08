@@ -72,6 +72,9 @@ namespace TechStockAPI.Applications.Services
             if (usuarioDto == null)
                 throw new DomainException("Dados invalidos!!!");
 
+            if (_repostory.IdExiste(usuarioDto.TipoId) == false)
+                throw new DomainException("Tipo usuario não localizado");
+
             Usuario usuarioAdicionado = new Usuario
             {
                 NomeUsuario = usuarioDto.NomeUsuario,
@@ -113,7 +116,7 @@ namespace TechStockAPI.Applications.Services
             if (_repostory.ObterPorId(id) == null)
                 throw new DomainException("Usuario não localizado!!!");
 
-                _repostory.DeletarUsuario(id);
+            _repostory.DeletarUsuario(id);
         }
     }
 }

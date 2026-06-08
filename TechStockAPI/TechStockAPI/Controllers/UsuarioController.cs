@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechStockAPI.Applications.Services;
@@ -17,6 +18,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult Listar()
         {
             try
@@ -30,6 +32,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult ObterPorId(int id)
         {
             try
@@ -43,10 +46,12 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult Adicionar(CriarUsuarioDto usuarioDto)
         {
             try
             {
+                _service.Adicionar(usuarioDto);
                 return Created();
             }
             catch (Exception ex)
@@ -56,6 +61,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult Atualizar(int id, AtualizarUsuarioDto usuarioDto)
         {
             try
@@ -69,6 +75,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpPatch("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult AtualizarSenha(int id, string senha)
         {
             try
@@ -82,6 +89,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public IActionResult Deletar(int id)
         {
             try

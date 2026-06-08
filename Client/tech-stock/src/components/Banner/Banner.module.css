@@ -1,0 +1,9 @@
+#banner {
+    height: 30vh;
+    
+    margin: 2% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/banner_circuito.svg');
+}

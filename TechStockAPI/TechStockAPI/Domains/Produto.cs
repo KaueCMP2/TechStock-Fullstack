@@ -15,6 +15,8 @@ public partial class Produto
 
     public int? Quantidade { get; set; }
 
+    public byte[] Imagem { get; set; } = null!;
+
     public int? UsuarioId { get; set; }
 
     public virtual Usuario? Usuario { get; set; }

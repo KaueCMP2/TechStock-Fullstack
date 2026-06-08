@@ -24,13 +24,13 @@ public partial class TechStockDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=TechStockDb; Trusted_Connection=true; TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=TechStockDb; Trusted_Connection=true; TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Produto>(entity =>
         {
-            entity.HasKey(e => e.ProdutoId).HasName("PK__Produto__9C8800E37FAAA751");
+            entity.HasKey(e => e.ProdutoId).HasName("PK__Produto__9C8800E3E870E0BA");
 
             entity.Property(e => e.Nome).HasMaxLength(100);
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
@@ -40,9 +40,9 @@ public partial class TechStockDbContext : DbContext
 
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
-            entity.HasKey(e => e.TipoId).HasName("PK__TipoUsua__97099EB7ADF6E62F");
+            entity.HasKey(e => e.TipoId).HasName("PK__TipoUsua__97099EB79E4A62DD");
 
-            entity.HasIndex(e => e.NomeTipo, "UQ__TipoUsua__7859A10AAB1EA0CE").IsUnique();
+            entity.HasIndex(e => e.NomeTipo, "UQ__TipoUsua__7859A10AF012B566").IsUnique();
 
             entity.Property(e => e.NomeTipo)
                 .HasMaxLength(40)
@@ -51,9 +51,9 @@ public partial class TechStockDbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B811745434");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B82C13B1D2");
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D1053433D096C6").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D10534DBFDD0F4").IsUnique();
 
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
@@ -61,7 +61,9 @@ public partial class TechStockDbContext : DbContext
             entity.Property(e => e.NomeUsuario).HasMaxLength(100);
             entity.Property(e => e.Senha).HasMaxLength(32);
 
-            entity.HasOne(d => d.Tipo).WithMany(p => p.Usuario).HasForeignKey(d => d.TipoId);
+            entity.HasOne(d => d.Tipo).WithMany(p => p.Usuario)
+                .HasForeignKey(d => d.TipoId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         });
 
         OnModelCreatingPartial(modelBuilder);

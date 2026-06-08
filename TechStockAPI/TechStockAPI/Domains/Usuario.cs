@@ -15,9 +15,9 @@ public partial class Usuario
 
     public DateOnly? DataNascimento { get; set; }
 
-    public int? TipoId { get; set; }
+    public int TipoId { get; set; }
 
     public virtual ICollection<Produto> Produto { get; set; } = new List<Produto>();
 
-    public virtual TipoUsuario? Tipo { get; set; }
+    public virtual TipoUsuario Tipo { get; set; } = null!;
 }

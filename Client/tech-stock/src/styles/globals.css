@@ -6,7 +6,6 @@
   --azul-escuro: #0A0B24;
   --azul: #243A4B;
   --azul-claro: #19397F;
-  --font-head: 'Orbitron', sans-serif;
 }
 
 html,
@@ -29,8 +28,17 @@ body {
   margin: 0;
 }
 
+.layout-guid{
+  width: 95%;
+}
+
 h1 {
   font-family: var(--font-head);
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.1rem;
 }
 
 a {
@@ -56,6 +64,7 @@ button {
   border: none;
   height: 40px;
   border-radius: 5px;
+  color: var(--background);
   box-shadow: 0 0 5 #EAEBF5;
   cursor: pointer;
 }
@@ -63,10 +72,4 @@ button {
 button:hover {
   transition: 0.5s ease;
   background-color: rgb(19, 25, 59);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

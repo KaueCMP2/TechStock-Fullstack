@@ -1,0 +1,39 @@
+#header {
+    width: 100%;
+    height: 10vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--azul-escuro);
+}
+
+#content_header {
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 20%;
+}
+
+#link {
+    width: 10%;
+    height: 40%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 5px;
+    color: var(--azul-escuro);
+    background-color: var(--background);
+    
+    font-size: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 600;
+}

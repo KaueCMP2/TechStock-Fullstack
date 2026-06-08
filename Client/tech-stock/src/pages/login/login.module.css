@@ -1,0 +1,68 @@
+#main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row
+}
+
+#section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    background-color: var(--background);
+}
+
+#section1 h1 {
+    color: var(--azul);
+    font-size: 5rem;
+    margin-top: 5%;
+}
+
+#section1 img {
+    width: 60%;
+}
+
+#section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--background);
+    width: 40%;
+    background-color: var(--azul-escuro);
+}
+
+#section2 h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 0 0 2% 0;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    margin: 10px auto;
+
+    width: 60%;
+    height: 60%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+.input label {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#link {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 5px;
+}

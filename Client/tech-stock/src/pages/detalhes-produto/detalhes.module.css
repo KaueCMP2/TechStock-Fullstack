@@ -1,0 +1,44 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+}
+
+#detalhes {
+    display: flex;
+}
+
+.lado1 {
+    width: 30%;
+}
+
+.lado1 img {
+    width: 100%;
+}
+
+.lado2 {
+    margin-left: 5%;
+    width: 30%;
+}
+
+.lodo2 h1 {
+    font-family: sans-serif;
+    font-size: 5rem;
+}
+
+#baixo {
+    width: 80%;
+    margin-top: 8%;
+
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+
+}
+
+#baixo h3 {
+    font-size: 1.5rem;
+}

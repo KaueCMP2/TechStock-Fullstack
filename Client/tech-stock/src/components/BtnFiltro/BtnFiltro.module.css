@@ -1,0 +1,6 @@
+#btn_filtro {
+    width: 3%;
+    
+    background-color: var(--background) !important;
+    box-shadow: 0 0 10 #B8B8B8;
+}

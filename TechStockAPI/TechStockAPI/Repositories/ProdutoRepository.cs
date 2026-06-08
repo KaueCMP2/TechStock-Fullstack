@@ -1,4 +1,5 @@
-﻿using TechStockAPI.Contexts;
+﻿using Microsoft.AspNetCore.Http.Metadata;
+using TechStockAPI.Contexts;
 using TechStockAPI.Domains;
 using TechStockAPI.Interfaces;
 
@@ -22,6 +23,16 @@ namespace TechStockAPI.Repositories
             return _context.Produto.Find(id);
         }
 
+        public List<Produto> ObterPorNome(string nome)
+        {
+            return _context.Produto.Where(p => p.Nome.Contains(nome)).ToList();
+        }
+
+        public byte[] ObterImagem(int id)
+        {
+            byte[] imagem = _context.Produto.Where(p => p.ProdutoId == id).Select(p => p.Imagem).FirstOrDefault();
+            return imagem;
+        }
 
         public bool ProdutoExiste(string? nome = null, int? id = null)
         {

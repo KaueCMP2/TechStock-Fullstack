@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using TechStockAPI.Applications.Services;
@@ -42,13 +43,42 @@ namespace TechStockAPI.Controllers
             }
         }
 
+        [HttpGet("Nome/{nome}")]
+        public IActionResult ObterPorNome(string nome)
+        {
+            try
+            {
+                return Ok(_service.ObterPorNome(nome));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("Imagem/{id}")]
+        public IActionResult ObterImagemProduto(int id)
+        {
+            try
+            {
+                byte[] imagem = _service.ObterImagem(id);
+                return File(imagem, "Image/jpeg");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
-        public ActionResult Adicionar(CriarProdutoDTO produtoDto)
+        [Authorize(Roles = "Responsavel")]
+        [Consumes("multipart/form-data")]
+        public ActionResult Adicionar([FromForm] CriarProdutoDTO produtoDto)
         {
             try
             {
                 _service.Adicionar(produtoDto);
-                return Created();
+                return StatusCode(201);
             }
             catch (Exception ex)
             {
@@ -57,12 +87,13 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public ActionResult Atualizar(int id, AtualizarProdutoDTO produtoDTO)
         {
             try
             {
                 _service.Atualizar(id, produtoDTO);
-                return Ok();
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -71,6 +102,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public ActionResult Deletar(int id)
         {
             try

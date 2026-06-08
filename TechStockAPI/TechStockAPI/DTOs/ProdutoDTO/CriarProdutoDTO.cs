@@ -3,6 +3,7 @@
     public class CriarProdutoDTO
     {
         public string Nome { get; set; } = null!;
+        public IFormFile Imagem { get; set; } = null!;
 
         public string? Descricao { get; set; }
 

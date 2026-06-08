@@ -1,4 +1,5 @@
-﻿using TechStockAPI.Applications.Roles;
+﻿using TechStockAPI.Applications.Conversions;
+using TechStockAPI.Applications.Roles;
 using TechStockAPI.Domains;
 using TechStockAPI.DTOs.ProdutoDTO;
 using TechStockAPI.Exceptions;
@@ -17,14 +18,7 @@ namespace TechStockAPI.Applications.Services
             if (produtos == null)
                 throw new DomainException("Nenhum produto encontrado");
 
-            List<LerProdutoDTO> produtosDTOs = produtos.Select(produto => new LerProdutoDTO
-            {
-                ProdutoId = produto.ProdutoId,
-                Nome = produto.Nome,
-                Descricao = produto.Descricao,
-                Preco = produto.Preco,
-                Quantidade = produto.Quantidade
-            }).ToList();
+            List<LerProdutoDTO> produtosDTOs = produtos.Select(produto => ProdutoParaDto.ConverterParaDto(produto)).ToList();
 
             return produtosDTOs;
         }
@@ -35,16 +29,28 @@ namespace TechStockAPI.Applications.Services
             if (produto == null)
                 throw new DomainException("Produto não encontrado!");
 
-            LerProdutoDTO produtoDTO = new LerProdutoDTO
-            {
-                ProdutoId = produto.ProdutoId,
-                Nome = produto.Nome,
-                Descricao = produto.Descricao,
-                Preco = produto.Preco,
-                Quantidade = produto.Quantidade
-            };
+            LerProdutoDTO produtoDTO = ProdutoParaDto.ConverterParaDto(produto);
 
             return produtoDTO;
+        }
+
+        public List<LerProdutoDTO> ObterPorNome(string nome)
+        {
+            List<Produto> produtos = _repository.ObterPorNome(nome);
+            if (produtos == null)
+                throw new DomainException("Nenhum produto localizado!!!");
+
+            List<LerProdutoDTO> produtosDto = produtos.Select(produto => ProdutoParaDto.ConverterParaDto(produto)).ToList();
+            return produtosDto;
+        }
+
+        public byte[] ObterImagem(int id)
+        {
+            byte[] imagem = _repository.ObterImagem(id);
+            if (imagem == null)
+                throw new DomainException("Imagem não encontrada!!!");
+
+            return imagem;
         }
 
         public void Adicionar(CriarProdutoDTO dto)
@@ -56,7 +62,8 @@ namespace TechStockAPI.Applications.Services
                 Nome = dto.Nome,
                 Descricao = dto.Descricao,
                 Preco = dto.Preco,
-                Quantidade = dto.Quantidade
+                Quantidade = dto.Quantidade,
+                Imagem = ImagemParaBytes.ConverterImagemParaBytes(dto.Imagem)
             };
 
             _repository.Adicionar(produtoCriado);

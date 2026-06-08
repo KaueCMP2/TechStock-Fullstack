@@ -7,6 +7,8 @@ namespace TechStockAPI.Interfaces
     {
         public List<Produto> Listar();
         public Produto ObterPorId(int id);
+        public List<Produto> ObterPorNome(string nome);
+        public byte[] ObterImagem(int id);
         public bool ProdutoExiste(string? nome = null, int? id = null);
         public void Adicionar(Produto produto);
         public void Atualizar(Produto produto);

@@ -1,0 +1,14 @@
+#container_card {
+    list-style: none;
+    width: 100%;
+}
+
+#container_card img {
+    width: 100%;
+}
+
+#container_card h3 {
+    margin: 5% 0 0 0;
+    word-break: break-all;
+    width: 90%;
+}

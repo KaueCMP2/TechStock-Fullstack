@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechStockAPI.Applications.Services;
 
@@ -15,6 +16,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Responsavel")]
         public ActionResult Listar()
         {
             try
@@ -28,6 +30,7 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Responsavel")]
         public ActionResult ObterPorId(int id)
         {
             try

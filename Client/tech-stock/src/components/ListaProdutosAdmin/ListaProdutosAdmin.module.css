@@ -1,0 +1,53 @@
+#container_tabela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 8px 8px;
+
+    height: 70vh;
+    overflow-y: auto;
+    width: 95%;
+    background-color: var(--azul-escuro);
+    border-radius: 5px;
+
+    scroll-behavior: smooth;
+}
+
+#input_pesquisa {
+    width: 100%;
+    max-width: 95%;
+    margin-bottom: 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: start;
+
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--background);
+}
+
+#table {
+    height: 50vh;
+    width: 95%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#table th {
+    padding: 12px 15px;
+}
+
+#table th {
+    background-color: transparent;
+    color: var(--background);
+}
+
+/* Efeito ao passar o mouse (opcional) */
+#table tbody tr:hover {
+    background-color: #f1f1f1;
+}

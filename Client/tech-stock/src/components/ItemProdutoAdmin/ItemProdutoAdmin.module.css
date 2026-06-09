@@ -1,0 +1,31 @@
+#item {
+    background-color: var(--background);
+    vertical-align: middle;
+}
+
+#item td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#item td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#item td {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 15px 15px;
+    font-size: 14px;
+    vertical-align: middle;
+
+}
+
+#item button {
+    color: var(--azul-escuro);
+    box-shadow: none;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+}

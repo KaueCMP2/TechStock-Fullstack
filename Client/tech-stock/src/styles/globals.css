@@ -48,7 +48,8 @@ a {
 
 input {
   background-color: var(--background);
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   border: none;
   height: 40px;
   padding: 0 0 0 10px;

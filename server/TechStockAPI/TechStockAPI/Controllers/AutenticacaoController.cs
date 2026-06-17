@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechStockAPI.Applications.Services;
+using TechStockAPI.DTOs.AutenticacaoDTO;
 
 namespace TechStockAPI.Controllers
 {
@@ -15,15 +16,15 @@ namespace TechStockAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string senha)
+        public IActionResult Login(LoginDto loginDto)
         {
             try
             {
-                return Ok(_service.Login(email, senha));
+                return Ok(_service.Login(loginDto.Email, loginDto.Senha));
             }
             catch (Exception ex)
             {
-                return Unauthorized(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
     }

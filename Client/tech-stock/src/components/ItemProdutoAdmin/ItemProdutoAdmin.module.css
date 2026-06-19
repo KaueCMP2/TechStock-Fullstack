@@ -15,15 +15,24 @@
 
 #item td {
     background-color: #ffffff;
-    color: #333333;
+    color: #000000;
     padding: 15px 15px;
     font-size: 14px;
     vertical-align: middle;
-
 }
+
+.act_td1 {
+    margin-right: 8%;
+}
+
+.act_td3 {
+    margin-left: 8%;
+}
+
 
 #item button {
     color: var(--azul-escuro);
+    border: none;
     box-shadow: none;
     background-color: transparent;
     width: auto;

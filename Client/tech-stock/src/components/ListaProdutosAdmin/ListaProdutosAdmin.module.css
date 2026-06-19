@@ -29,6 +29,17 @@
     color: var(--background);
 }
 
+#container_pesquisa {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 1.4%;
+}
+
+#container_pesquisa input{
+    width: 80%;
+}
+
 #table {
     height: 50vh;
     width: 95%;

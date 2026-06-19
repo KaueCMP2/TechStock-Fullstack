@@ -17,11 +17,16 @@ interface ProdutoRecebido {
 }
 const ListaProdutosUsuario = () => {
     const [produtos, setProdutos] = useState<ProdutoRecebido[]>([])
+    const [digitado, setDigitado] = useState("")
 
     async function carregarProdutos() {
         const data = await lerProdutos();
         setProdutos(data!)
     }
+
+    const filtrados = produtos.filter(item =>
+        item.nome.toLowerCase().includes(digitado.toLowerCase())
+    )
 
     useEffect(() => {
         carregarProdutos();
@@ -30,13 +35,13 @@ const ListaProdutosUsuario = () => {
     return (
         <main id={styles.main} className='layout-guid'>
             <div id={styles.container_pesquisa}>
-                <InputPesquisa />
+                <InputPesquisa valor={digitado} onChange={setDigitado} />
                 <BtnFiltro />
             </div>
             <ul id={styles.container_lista}>
                 {
-                    produtos.length < 0 ? (<li>---Nenhum produto---</li>)
-                        : produtos.map((produto) => (<CardProdutoUsuario
+                    filtrados.length < 0 ? (<li>---Nenhum produto---</li>)
+                        : filtrados.map((produto) => (<CardProdutoUsuario
                             key={produto.produtoId}
                             produtoId={produto.produtoId}
                             nome={produto.nome}

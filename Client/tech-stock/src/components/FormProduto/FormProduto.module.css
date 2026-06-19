@@ -2,17 +2,20 @@
     width: 80%;
     height: 50vh;
 
+    align-self: center;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background-color: var(--azul-escuro);
 
     border-radius: 5px;
 }
 
 #form {
+    font-weight: 550;
     width: 80%;
-    height: 70%;
+    height: 90%;
 
     display: flex;
     flex-direction: column;
@@ -28,6 +31,47 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+#container_inputFile {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+#container_inputFile label {
+    font-weight: 550;
+    color: var(--background);
+}
+
+#inputFile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 88%;
+    border-radius: 5px;
+    background-color: var(--background);
+    position: relative; /* FUNDAMENTAL: Cria a âncora para o input absoluto */
+    overflow: hidden;
+}
+
+#inputFile input {
+    position: absolute; /* FUNDAMENTAL: Tira o input do fluxo e não esmaga o ícone */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Torna apenas o input invisível */
+    cursor: pointer;
+    z-index: 2; /* Fica por cima de tudo para receber o clique */
+}
+
+#icon {
+    z-index: 1; /* Fica abaixo do clique, mas visível por baixo */
+    pointer-events: none; /* Garante que o clique passe para o input */
 }
 
 #esquerda {
@@ -58,11 +102,13 @@
 
 #direita {
     width: 40%;
+    height: 88%;
 }
 
 .input3 {
     min-height: 100%;
 }
+
 #textarea {
     max-width: 100%;
     min-height: 100%;

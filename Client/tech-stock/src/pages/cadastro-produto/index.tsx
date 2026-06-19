@@ -6,8 +6,13 @@ import LinkVoltar from '@/components/LinkVoltar/LinkVoltar'
 const index = () => {
   return (
     <>
-      <LinkVoltar pagina='/home-adm'/>
-      <FormProduto />
+      <main id={styles.main}>
+        <section id={styles.section}>
+          <LinkVoltar pagina='/home-adm' />
+          <h1>Cadastrar produtos</h1>
+        </section>
+        <FormProduto />
+      </main>
     </>
   )
 }

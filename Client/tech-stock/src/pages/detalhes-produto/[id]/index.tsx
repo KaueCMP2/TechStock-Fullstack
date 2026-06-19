@@ -16,6 +16,7 @@ interface ProdutoRecebido {
     preco: number,
     quantidade: number
 }
+
 const detalhes = () => {
     const [produto, setProduto] = useState<ProdutoRecebido | null>(null)
     const router = useRouter();

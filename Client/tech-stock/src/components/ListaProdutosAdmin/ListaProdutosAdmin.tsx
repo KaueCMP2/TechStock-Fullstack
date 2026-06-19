@@ -6,6 +6,7 @@ import ItemProdutoAdmin from '../ItemProdutoAdmin/ItemProdutoAdmin'
 import InputPesquisa from '../InputPesquisa/InputPesquisa'
 import { erro, notificacao, toastConfirmarExclusao } from '@/utils/toasts'
 import { deletarProduto } from '@/pages/api/produtoService'
+import BtnFiltro from '../BtnFiltro/BtnFiltro'
 
 interface ProdutoRecebido {
     produtoId: number,
@@ -19,6 +20,7 @@ interface ProdutoRecebido {
 
 const ListaProdutosAdmin = ({ produtos }: { produtos: ProdutoRecebido[] }) => {
     const [listaProdutos, setListaProdutos] = useState(produtos);
+    const [digitado, setDigitado] = useState("")
 
     function excluir(produtoId: number) {
         toastConfirmarExclusao(async () => {
@@ -31,14 +33,19 @@ const ListaProdutosAdmin = ({ produtos }: { produtos: ProdutoRecebido[] }) => {
         })
     }
 
+    const filtrados = produtos.filter((produto) => produto.nome.toLowerCase()
+        .includes(digitado.toLowerCase()));
 
     return (
         <section id={styles.container_tabela}>
             <div id={styles.input_pesquisa}>
-                <InputPesquisa />
+                <div id={styles.container_pesquisa}>
+                    <InputPesquisa valor={digitado} onChange={setDigitado} />
+                    <BtnFiltro />
+                </div>
                 <Link href="/cadastro-produto" id={styles.link}>Novo produto</Link>
             </div>
-            {produtos.length <= 0 ? (<h3>Nenhum item encontrado</h3>) :
+            {filtrados.length <= 0 ? (<h3>Nenhum item encontrado</h3>) :
                 (
 
                     <table id={styles.table}>
@@ -51,7 +58,7 @@ const ListaProdutosAdmin = ({ produtos }: { produtos: ProdutoRecebido[] }) => {
                             </tr>
                         </thead>
                         <tbody id={styles.tbody}>
-                            {produtos.map((produto) => (<ItemProdutoAdmin key={produto.produtoId}
+                            {filtrados.map((produto) => (<ItemProdutoAdmin key={produto.produtoId}
                                 produtoId={produto.produtoId}
                                 nome={produto.nome}
                                 descricao={produto.descricao}

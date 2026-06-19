@@ -49,7 +49,7 @@ const loign = () => {
                         <input type="password" name="pass" placeholder="********" onChange={(e) => setSenha(e.target.value)} />
                         <Link href="/senha" id={styles.link}>Esqueceu sua senha?</Link>
                     </div>
-                    <button type="submit">Entrar</button>
+                    <button type="submit" className='button'>Entrar</button>
                 </form>
             </section>
         </main >

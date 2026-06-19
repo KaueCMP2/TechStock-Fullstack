@@ -12,7 +12,7 @@ const senha = () => {
                         <label htmlFor="mail">Email</label>
                         <input type="text" name="mail" placeholder="email@email.com" />
                     </div>
-                    <button type="submit" onClick={(e) => {
+                    <button type="submit" className='button' onClick={(e) => {
                         e.preventDefault();
                     }}>Receber link</button>
                 </form>

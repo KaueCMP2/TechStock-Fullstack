@@ -1,3 +1,22 @@
+/* Força um tempo visível para você testar se está funcionando */
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in forwards;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 #main {
     width: 100%;
     height: 100vh;

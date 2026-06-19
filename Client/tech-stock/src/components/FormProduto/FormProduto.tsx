@@ -27,7 +27,7 @@ const FormProduto = () => {
                         </div>
                     </div>
                 </div>
-                <button>Salvar produto</button>
+                <button className='button'>Salvar produto</button>
             </form>
         </section>
     )

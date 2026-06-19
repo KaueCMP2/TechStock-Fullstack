@@ -18,7 +18,7 @@ CREATE TABLE Usuario
 	Email VARCHAR(255) UNIQUE NOT NULL,
 	Senha VARBINARY(32) NOT NULL,
 	DataNascimento DATE,
-	TipoId INT,
+	TipoId INT NOT NULL,
 
 	CONSTRAINT FK_Usuario_TipoUsuario_TipoId FOREIGN KEY (TipoId) REFERENCES TipoUsuario(TipoId)
 )
@@ -29,6 +29,7 @@ CREATE TABLE Produto
 	ProdutoId INT IDENTITY(1,1) PRIMARY KEY,
 	Nome NVARCHAR(100) NOT NULL,
 	Descricao NVARCHAR(MAX),
+	DataCriacao DATE DEFAULT GETDATE(),
 	Preco DECIMAL(10,2) NOT NULL,
 	Quantidade INT,
 	Imagem VARBINARY (MAX) NOT NULL,

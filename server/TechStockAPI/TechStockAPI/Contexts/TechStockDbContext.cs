@@ -30,8 +30,9 @@ public partial class TechStockDbContext : DbContext
     {
         modelBuilder.Entity<Produto>(entity =>
         {
-            entity.HasKey(e => e.ProdutoId).HasName("PK__Produto__9C8800E3E870E0BA");
+            entity.HasKey(e => e.ProdutoId).HasName("PK__Produto__9C8800E3A4E7DE95");
 
+            entity.Property(e => e.DataCriacao).HasDefaultValueSql("(getdate())");
             entity.Property(e => e.Nome).HasMaxLength(100);
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
 
@@ -40,9 +41,9 @@ public partial class TechStockDbContext : DbContext
 
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
-            entity.HasKey(e => e.TipoId).HasName("PK__TipoUsua__97099EB79E4A62DD");
+            entity.HasKey(e => e.TipoId).HasName("PK__TipoUsua__97099EB72BCD55C7");
 
-            entity.HasIndex(e => e.NomeTipo, "UQ__TipoUsua__7859A10AF012B566").IsUnique();
+            entity.HasIndex(e => e.NomeTipo, "UQ__TipoUsua__7859A10A07360648").IsUnique();
 
             entity.Property(e => e.NomeTipo)
                 .HasMaxLength(40)
@@ -51,9 +52,9 @@ public partial class TechStockDbContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B82C13B1D2");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B87D09F0F2");
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D10534DBFDD0F4").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D10534FEAAFFAE").IsUnique();
 
             entity.Property(e => e.Email)
                 .HasMaxLength(255)

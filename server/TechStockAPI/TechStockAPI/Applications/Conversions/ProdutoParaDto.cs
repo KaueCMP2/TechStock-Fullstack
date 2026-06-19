@@ -12,7 +12,8 @@ namespace TechStockAPI.Applications.Conversions
                 ProdutoId = produto.ProdutoId,
                 Nome = produto.Nome,
                 Descricao = produto.Descricao,
-                imagemUrl = $"produto/{produto.ProdutoId}/imagem",
+                DataCriacao  = (produto.DataCriacao).ToString(),
+                imagemUrl = $"Produto/Imagem/{produto.ProdutoId}",
                 Preco = produto.Preco,
                 Quantidade = produto.Quantidade
             };

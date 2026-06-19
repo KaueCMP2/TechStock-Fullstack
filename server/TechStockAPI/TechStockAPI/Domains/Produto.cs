@@ -11,6 +11,8 @@ public partial class Produto
 
     public string? Descricao { get; set; }
 
+    public DateOnly? DataCriacao { get; set; }
+
     public decimal Preco { get; set; }
 
     public int? Quantidade { get; set; }

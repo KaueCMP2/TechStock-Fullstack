@@ -8,6 +8,7 @@
 
         public string imagemUrl { get; set; }
         public string? Descricao { get; set; }
+        public string? DataCriacao { get; set; }
 
         public decimal Preco { get; set; }
 

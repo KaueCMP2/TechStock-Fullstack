@@ -4,6 +4,7 @@
 }
 
 #container_card img {
+    height: auto;
     width: 100%;
 }
 

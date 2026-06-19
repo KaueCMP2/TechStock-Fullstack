@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CardProdutoUsuario from '../CardProdutoUsuario/CardProdutoUsuario'
 import styles from "@/components/ListaProdutosUsuario/ListaProdutosUsuario.module.css"
 import InputPesquisa from '../InputPesquisa/InputPesquisa'
 import BtnFiltro from '../BtnFiltro/BtnFiltro'
+import { lerProdutos } from '@/pages/api/produtoService'
 
 
+interface ProdutoRecebido {
+    produtoId: number,
+    nome: string,
+    imagemUrl: string,
+    descricao: string,
+    dataCriacao: Date,
+    preco: number,
+    quantidade: number
+}
 const ListaProdutosUsuario = () => {
+    const [produtos, setProdutos] = useState<ProdutoRecebido[]>([])
+
+    async function carregarProdutos() {
+        const data = await lerProdutos();
+        setProdutos(data!)
+    }
+
+    useEffect(() => {
+        carregarProdutos();
+    }, [])
+
     return (
         <main id={styles.main} className='layout-guid'>
             <div id={styles.container_pesquisa}>
@@ -13,34 +34,19 @@ const ListaProdutosUsuario = () => {
                 <BtnFiltro />
             </div>
             <ul id={styles.container_lista}>
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
-                <CardProdutoUsuario />
+                {
+                    produtos.length < 0 ? (<li>---Nenhum produto---</li>)
+                        : produtos.map((produto) => (<CardProdutoUsuario
+                            key={produto.produtoId}
+                            produtoId={produto.produtoId}
+                            nome={produto.nome}
+                            descricao={produto.descricao}
+                            dataCriacao={produto.dataCriacao}
+                            imagemUrl={produto.imagemUrl}
+                            preco={produto.preco}
+                            quantidade={produto.quantidade}
+                        />))
+                }
             </ul>
         </main>
     )

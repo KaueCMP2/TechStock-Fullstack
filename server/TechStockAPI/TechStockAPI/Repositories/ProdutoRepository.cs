@@ -53,6 +53,7 @@ namespace TechStockAPI.Repositories
             if (produtoBanco == null) return;
 
             produtoBanco.Nome = produto.Nome;
+            produtoBanco.Imagem = produto.Imagem;
             produtoBanco.Descricao = produto.Descricao;
             produtoBanco.Quantidade = produto.Quantidade;
             produtoBanco.Preco = produto.Preco;

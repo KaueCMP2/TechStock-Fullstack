@@ -21,11 +21,8 @@ const index = () => {
   const router = useRouter();
   const { id } = router.query;
 
-
   useEffect(() => {
     if (!router.isReady || !id) return;
-    console.log(id)
-
     async function carregarProduto() {
       const data = await lerProdutoPorId(Number(id))
       setProduto(data)

@@ -9,5 +9,6 @@
         public decimal Preco { get; set; }
 
         public int? Quantidade { get; set; }
+        public IFormFile Imagem { get; set; } = null!;
     }
 }

@@ -83,6 +83,7 @@ namespace TechStockAPI.Applications.Services
             produtoBanco.Preco = dto.Preco;
             produtoBanco.Descricao = dto.Descricao;
             produtoBanco.Quantidade = dto.Quantidade;
+            produtoBanco.Imagem = ImagemParaBytes.ConverterImagemParaBytes(dto.Imagem);
 
             _repository.Atualizar(produtoBanco);
         }

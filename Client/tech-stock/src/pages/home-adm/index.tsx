@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '@/pages/home-adm/homeAdmin.module.css'
 import ListaProdutosAdmin from '@/components/ListaProdutosAdmin/ListaProdutosAdmin'
 import { lerProdutos } from '../api/produtoService'
+import { useRouter } from 'next/router'
 
 interface ProdutoRecebido {
     produtoId: number,
@@ -15,6 +16,8 @@ interface ProdutoRecebido {
 
 const index = () => {
     const [produtos, setProdutos] = useState<ProdutoRecebido[]>([]);
+    const [estaLogado, setEstaLogado] = useState<boolean | null>(null)
+
 
     useEffect(() => {
         async function carregarProdutos() {
@@ -23,13 +26,15 @@ const index = () => {
         }
 
         carregarProdutos();
-    }, [])
+    }, [estaLogado])
 
     return (
-        <main id={styles.main}>
-            <h1>Lista de produtos</h1>
-            <ListaProdutosAdmin produtos={produtos}/>
-        </main>
+        <>
+            <main id={styles.main}>
+                <h1>Lista de produtos</h1>
+                <ListaProdutosAdmin produtos={produtos} />
+            </main>
+        </>
     )
 }
 

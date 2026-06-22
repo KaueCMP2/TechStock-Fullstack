@@ -5,10 +5,12 @@ import React, { useState } from 'react'
 import { login } from "../api/autenticacaoService"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify"
+import secureLocalStorage from "react-secure-storage"
 
 const loign = () => {
-    const [email, setEmail] = useState("")
-    const [senha, setSenha] = useState("")
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [token, setToken] = useState("");
 
     const router = useRouter();
     const notificacao = (msg: string) => toast.success(msg);
@@ -17,12 +19,17 @@ const loign = () => {
     async function autenticar(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(email, senha)
-            notificacao("Login bem sucedido");
+            async function realizarLogin() {
+                const token = await login(email, senha)
 
-            setTimeout(() => {
-                router.push("/home-adm");
-            }, 2000)
+                if (secureLocalStorage.getItem("Token") == token)
+                    setTimeout(() => {
+                        router.push("/home-adm");
+                    }, 2000)
+            }
+
+            realizarLogin();
+
         } catch (error: any) {
             erro(error.message);
         }

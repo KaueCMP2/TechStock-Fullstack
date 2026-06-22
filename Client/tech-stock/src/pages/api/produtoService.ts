@@ -1,6 +1,6 @@
 import { AnyRecordWithTtl } from "dns";
 import { api } from "./api";
-import { erro, toastConfirmarExclusao } from "@/utils/toasts";
+import { erro, notificacao, toastConfirmarExclusao } from "@/utils/toasts";
 
 interface ProdutoListagem {
     produtoId: number,
@@ -73,9 +73,10 @@ export async function editarProdutos(id: string, produto: ProdutoFormulario) {
         formData.append("quantidade", String(produto.quantidade));
 
         const response = await api.put(`Produto/${id}`, formData);
+        notificacao(`Produto ${produto.nome} atualizado com sucesso!`)
         return response.data;
-    } catch (erro: any) {
-        throw new Error(erro.response.data);
+    } catch (error: any) {
+        throw new Error(error.response.data);
     }
 }
 

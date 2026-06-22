@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from "@/components/FormProduto/FormProduto.module.css"
 import { Upload } from 'lucide-react'
 import { cadastrarProdutos, editarProdutos } from '@/pages/api/produtoService'
+import { useRouter } from 'next/router'
 
 interface ProdutoRecebido {
     produtoId: number,
@@ -29,6 +30,8 @@ const FormProduto = ({ produto }: { produto?: ProdutoRecebido }) => {
     const [preco, setPreco] = useState(0);
     const [quantidade, setQuantidade] = useState(0);
 
+    const router = useRouter();
+
     const produtoAdicionado = {
         nome,
         imagem,
@@ -45,8 +48,10 @@ const FormProduto = ({ produto }: { produto?: ProdutoRecebido }) => {
                 if (produto == null)
                     cadastrarProdutos(produtoAdicionado)
 
-                else
+                else {
+                    router.push("/home-adm")
                     editarProdutos(String(produto.produtoId), produtoAdicionado!)
+                }
 
             }} >
                 <div id={styles.content_form}>

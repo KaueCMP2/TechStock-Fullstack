@@ -75,7 +75,7 @@
 }
 
 #esquerda {
-    width: 50%;
+    width: 40%;
 }
 
 #esquerda,
@@ -92,11 +92,11 @@
     flex-direction: column;
     justify-content: center;
     color: var(--background);
-    height: 90%;
+    height: 100%;
 }
 
 #esquerda div {
-    width: 100%;
+    width: 90%;
 }
 
 

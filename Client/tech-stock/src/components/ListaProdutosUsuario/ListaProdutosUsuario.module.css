@@ -1,5 +1,5 @@
 #main {
-    margin: 4% auto;    
+    margin: 4% auto;
 }
 
 #container_pesquisa {
@@ -11,9 +11,9 @@
 
 #container_lista {
     margin: 4% auto;
-    
+
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
     gap: 5vh 3.5%;
 }

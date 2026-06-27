@@ -13,7 +13,6 @@ interface ProdutoRecebido {
     quantidade: number
 }
 const CardProdutoUsuario = (produto: ProdutoRecebido) => {
-    const apiBaseUrl = "https://localhost:7043/api/"
     return (
         <li id={styles.container_card}>
             <Link href={`/detalhes-produto/${produto.produtoId}`}>

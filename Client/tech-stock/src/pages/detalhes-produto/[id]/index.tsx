@@ -29,15 +29,15 @@ const detalhes = () => {
     useEffect(() => {
         if (!router.isReady || !id) return;
 
-        
+
         async function carregarProduto() {
             const data = await lerProdutoPorId(Number(id))
             setProduto(data)
         }
         carregarProduto();
-        
+
     }, [router.isReady, id])
-    
+
     return (
         <>
             <Header />
@@ -48,7 +48,7 @@ const detalhes = () => {
 
                 <section id={styles.detalhes} className='layout-guid'>
                     <div className={styles.lado1}>
-                        <img src={produto?.imagemUrl} alt="" />
+                        <img src={produto?.imagemUrl} alt={`imagem do produto: ${produto?.nome}`} />
                         <div id={styles.baixo}>
                             <div className={styles.info_prod_quant}>
                                 <h3>Valor:</h3>

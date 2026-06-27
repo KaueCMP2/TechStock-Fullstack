@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10%;
     width: 100%;
     height: 90vh;
 }
@@ -12,7 +13,7 @@
 }
 
 .lado1 {
-    width: 30%;
+    width: clamp(10rem, 500px, 60%);
 }
 
 .lado1 img {
@@ -20,25 +21,26 @@
 }
 
 .lado2 {
+    width: 25%;
     margin-left: 5%;
-    width: 30%;
 }
 
 .lodo2 h1 {
     font-family: sans-serif;
-    font-size: 5rem;
 }
 
 #baixo {
-    width: 80%;
+    width: 100%;
     margin-top: 8%;
 
     display: flex;
-    flex-direction: row;    
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
 
 }
 
 #baixo h3 {
     font-size: 1.5rem;
 }
+
+@media (min-width: 600px) {}

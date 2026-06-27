@@ -13,3 +13,12 @@
     word-break: break-all;
     width: 90%;
 }
+
+#container_card span {
+    font-weight: 600;
+}
+
+#valor{
+    margin-left: 2%;
+    color: var(--azul-escuro);
+}

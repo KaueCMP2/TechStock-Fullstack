@@ -1,4 +1,3 @@
-````md
 # TechStock
 
 Tech Stock é um **sistema Full Stack**, desenvolvido para uma empresa fictícia: **Tech Stock LTDA**.
@@ -60,7 +59,6 @@ entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando ma
 │   ├── Exceptions         // Tratamento de exceções customizadas
 │   ├── Interfaces         // Contratos e assinaturas dos métodos
 │   └── Repositories       // Camada de acesso aos dados
-````
 
 #### Frontend
 
@@ -78,7 +76,6 @@ entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando ma
 
 
 
-```md
 ## Funcionalidades do Projeto
 
 * Autenticação e login de usuários
@@ -100,7 +97,6 @@ entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando ma
 
 O projeto utiliza SQL Server como banco de dados relacional e Entity Framework Core para mapeamento objeto-relacional (ORM).
 
-```` 
 
 ### Configuração da Connection String
 
@@ -194,7 +190,6 @@ http://localhost:3000
 | **DELETE** | `/api/produtos/{id}` | Remover produto   |
 
 
-```md
 ## Boas Práticas Aplicadas
 
 * Arquitetura em camadas
@@ -234,8 +229,6 @@ Desenvolvedor Full Stack com foco em:
 
 
 GitHub: https://github.com/KaueCMP
-````
-
 
    ``` cs
     acabou = true;

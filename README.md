@@ -3,9 +3,13 @@
 
 Tech Stock é um **sistema Full Stack**, desenvolvido para uma empresa fictícia: **Tech Stock LTDA**.
 
-Foi desenvolvido com o objetivo de fornecer uma solução moderna para controle e gerenciamento de estoque, permitindo o cadastro, consulta, atualização e remoção de produtos, além de autenticação segura de usuários através de JWT.
+Foi desenvolvido com o objetivo de fornecer uma solução moderna para controle e gerenciamento de estoque,
+permitindo o cadastro, consulta, atualização e remoção de produtos, além de autenticação segura de usuários
+através de JWT.
 
-Desenvolvido utilizando ASP.NET Core Web API, Entity Framework Core, SQL Server e Next.js. O sistema foi construído seguindo conceitos de arquitetura em camadas (Repository Pattern), separando responsabilidades entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando manutenção, escalabilidade e reutilização de código.
+Desenvolvido utilizando ASP.NET Core Web API, Entity Framework Core, SQL Server e Next.js. O sistema foi
+construído seguindo conceitos de arquitetura em camadas (Repository Pattern), separando responsabilidades
+entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando manutenção, escalabilidade e reutilização de código.
 
 
 ## Tecnologias Utilizadas

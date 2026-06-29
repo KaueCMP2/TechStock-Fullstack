@@ -43,6 +43,8 @@ entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando ma
 ## Estrutura do Projeto
 
 #### Backend
+
+```ts
 ├── Database
 │   ├── CREATE // Script de criação do banco de dados
 │   └── INSERT // Script de inserção inicial dos dados
@@ -59,6 +61,7 @@ entre Controllers, Services, Interfaces, Repositories e Contexts, facilitando ma
 │   ├── Exceptions         // Tratamento de exceções customizadas
 │   ├── Interfaces         // Contratos e assinaturas dos métodos
 │   └── Repositories       // Camada de acesso aos dados
+```
 
 #### Frontend
 

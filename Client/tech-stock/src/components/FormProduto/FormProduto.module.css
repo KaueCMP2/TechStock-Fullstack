@@ -99,7 +99,6 @@
     width: 90%;
 }
 
-
 #direita {
     width: 40%;
     height: 88%;
@@ -115,4 +114,7 @@
     border-radius: 5px;
     padding: 3% 0 0 3%;
     resize: none;
+    font-size: 1.2rem;
+    font-family:  Roboto, sans-serif;
+    font-weight: 400;
 }

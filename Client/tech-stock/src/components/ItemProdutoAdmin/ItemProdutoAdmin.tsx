@@ -17,8 +17,6 @@ interface ProdutoRecebido {
 }
 
 const ItemProdutoAdmin = (produto: ProdutoRecebido) => {
-
-
     return (
         <tr id={styles.item}>
             <td>{produto.nome}</td>

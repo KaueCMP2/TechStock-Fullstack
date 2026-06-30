@@ -42,7 +42,7 @@ const detalhes = () => {
         <>
             <Header />
             <main id={styles.main}>
-                <div className='layout-guid'>
+                <div className='layout-guid' id={styles.link}>
                     {isAdmin != "true" || isAdmin == null ? (<LinkVoltar pagina='/home' />) : (<LinkVoltar pagina='/home-adm' />)}
                 </div>
 

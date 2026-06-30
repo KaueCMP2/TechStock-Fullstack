@@ -46,7 +46,7 @@ const loign = () => {
                 <form action="" id={styles.form} onSubmit={(e) => {
                     autenticar(e);
                 }}>
-                    <h2>Login</h2>
+                    <h1>Login</h1>
                     <div className={styles.input}>
                         <label htmlFor="mail">Email</label>
                         <input type="text" name="mail" placeholder="email@email.com" onChange={(e) => setEmail(e.target.value)} />

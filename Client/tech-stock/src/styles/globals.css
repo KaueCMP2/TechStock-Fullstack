@@ -29,12 +29,12 @@ body {
 }
 
 .layout-guid {
-  width: 95%;
+  width: 90%;
 }
 
 h1 {
   font-family: var(--font-head);
-  font-size: clamp(40px, 10vw, 4rem);
+  font-size: clamp(50px, 10vw, 4rem);
 }
 
 p {
@@ -52,6 +52,7 @@ input {
   height: 40px;
   padding: 0 0 0 10px;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .button {

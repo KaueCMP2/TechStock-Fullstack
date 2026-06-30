@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/components/ListaProdutosAdmin/ListaProdutosAdmin.module.css'
 import { AlertCircleIcon, Pencil, Trash } from 'lucide-react'
 import Link from 'next/link'
@@ -7,6 +7,7 @@ import InputPesquisa from '../InputPesquisa/InputPesquisa'
 import { erro, notificacao, toastConfirmarExclusao } from '@/utils/toasts'
 import { deletarProduto } from '@/pages/api/produtoService'
 import BtnFiltro from '../BtnFiltro/BtnFiltro'
+import { projectUpdateInfoSubscribe } from 'next/dist/build/swc/generated-native'
 
 interface ProdutoRecebido {
     produtoId: number,
@@ -22,19 +23,30 @@ const ListaProdutosAdmin = ({ produtos }: { produtos: ProdutoRecebido[] }) => {
     const [listaProdutos, setListaProdutos] = useState(produtos);
     const [digitado, setDigitado] = useState("")
 
+    useEffect(() => {
+        if (produtos)
+            setListaProdutos(produtos);
+    }, [produtos])
+
     function excluir(produtoId: number) {
         toastConfirmarExclusao(async () => {
             try {
                 await deletarProduto(produtoId)
-                setListaProdutos(produtos.filter(produto => produto.produtoId !== produtoId))
-                notificacao("Produto excluido com sucesso!")
-            } catch (error: any) { }
-            erro("Erro ao excluir produto!!!");
+                notificacao(`Produto excluido com sucesso!`)
+                listaProdutos.filter((e) => e.produtoId == produtoId);
+                setFiltrados(produtos);
+            } catch (error: any) {
+                erro("Erro ao excluir produto!!!");
+            }
         })
     }
 
-    const filtrados = produtos.filter((produto) => produto.nome.toLowerCase()
-        .includes(digitado.toLowerCase()));
+    const [filtrados, setFiltrados] = useState(listaProdutos);
+
+    useEffect(() => {
+        setFiltrados(listaProdutos.filter((produto) => produto.nome.toLowerCase()
+            .includes(digitado.toLowerCase())));
+    }, [digitado, listaProdutos])
 
     return (
         <section id={styles.container_tabela}>

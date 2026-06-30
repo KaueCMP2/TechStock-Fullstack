@@ -57,9 +57,10 @@ export async function cadastrarProdutos(produto: ProdutoFormulario) {
         formData.append("quantidade", String(produto.quantidade));
 
         const response = await api.post("Produto", formData);
+        notificacao(`Produto: ${produto.nome} cadastrado com sucesso!`);
         return response.data;
-    } catch (erro: any) {
-        throw new Error(erro.response.data);
+    } catch (error: any) {
+        erro(error.response?.data || error.response?.data.message || error.response.data?.errors);
     }
 }
 
